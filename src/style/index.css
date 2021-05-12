@@ -17,7 +17,6 @@ header nav {
 }
 
 header nav a {
-    text-decoration:none;
     color: #AAA;
     margin-right: 10px;
 }
@@ -31,6 +30,7 @@ header nav .search {
 }
 
 header .search-box {
+
     position: relative;
     transform: translate(-50%, 0);
     background: none;
@@ -68,17 +68,59 @@ header .search-txt {
 
 
 
-.carrosel-filmes {
-    margin-top: 5px;
-    margin-left: 10px;
+.filme-principal {
+    font-size: 16px;
+    background: linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.50)100%),
+    url('../img/2Caqkb1m9qL6hJu7ftvE7LbRYJt.jpg');
+
+    height: 100vh;
+    background-size:cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.carrosel-filmes .a {
-    margin-top: 3%;
-    margin-bottom: 10px;
+.filme-principal .descricao {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.filme-principal .titulo {
+    margin-top: 15%;
+    font-size: 60px;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.botao {
+    background-color:  rgba(0,0,0,.50);
+    border: none;
+    color: white;
+
+    padding: 15px 30px;
+    margin-right: 15px;
+    font-size: 12px;
+
+    cursor: pointer;
+    transition: .3s ease all; 
+}
+
+.botao:hover {
+    background-color: white;
+    color: black;
+}
+
+.botao i {
+    margin-right: 8px;
+}
+
+.container {
     margin-left: 20px;
-    font-size: 20px;
-    font-family: 'Trebuchet MS', Arial, sans-serif; 
+}
+
+.filme-principal .container {
+    width: 70%;
 }
 
 .box-filme {
@@ -86,6 +128,19 @@ header .search-txt {
     width: 100%;
     display: block;
     cursor: pointer;
+}
+
+.carrosel-filmes {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.carrosel-filmes .subtitulo {
+    margin-top: 3%;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', Arial, sans-serif; 
 }
 
 .item:hover {

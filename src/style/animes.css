@@ -1,31 +1,10 @@
-:root{
-    --vermelho:#E50914;
-    --preta:#141414;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/*elementos básicos*/
-body{
-    height: 100vh;
-    background-color: var(--preta);
-    font-family: 'Arial ', Times, serif;
-    color: white;
-}
-
-
-header .container{
+header .container {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-header .logo a{
-    text-decoration:none;
+header .logo a {
     margin-left: 5px;
     margin-right: 40px;
     color: var(--vermelho);
@@ -33,49 +12,48 @@ header .logo a{
     font-size: 40px;
 }
 
-header nav a{
+header nav {
+    margin-right: 140px;
+}
+
+header nav a {
     text-decoration:none;
     color: #AAA;
     margin-right: 10px;
 }
 
-header nav a:hover{
+header nav a:hover {
     color: #fff;
 }
 
-header nav .search{
+header nav .search {
     margin-left: 30px;
 }
 
-.search-box{
-    position: absolute;
-    top: 4.3%;
-    left: 53%;
-    transform: translate(-50%,-50%);
+header .search-box {
+    position: relative;
+    transform: translate(-50%, 0);
     background: none;
     height: 18px;
     border-radius: 40px;
-    padding: 0px;
 }
 
-.search-box:hover > .search-txt{
+header .search-box:hover > .search-txt {
     width: 240px;
     padding: 0.6px;
 }
 
-.search-btn{
+header .search-btn {
     color: red;
     float: left;
     width: 14px;
     height: 14px;
     border-radius: 50%;
     background:none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-right: 10px;
 }
 
-.search-txt{
+header .search-txt {
     border:none;
     background: none;
     outline: none;
@@ -88,7 +66,9 @@ header nav .search{
     width: 0px;
 }
 
-.carrosel-filmes{
+
+
+.carrosel-filmes {
     margin-top: 5px;
     margin-left: 10px;
 }
@@ -101,7 +81,7 @@ header nav .search{
     font-family: 'Trebuchet MS', Arial, sans-serif; 
 }
 
-.box-filme{
+.box-filme {
     height: 100%;
     width: 100%;
     display: block;
