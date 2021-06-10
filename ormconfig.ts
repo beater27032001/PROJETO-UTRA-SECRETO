@@ -10,7 +10,7 @@ export default {
         "./src/database/migrations/**.{js,ts}"
     ],
     "entities": [
-        "./src/models/**.{js,ts}" // "./src/models/**.{js,ts}
+        "./src/entities/**.{js,ts}"
     ],
     "cli": {
         "migrationsDir": "./src/database/migrations"

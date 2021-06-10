@@ -5,16 +5,24 @@ import { AnimesRepository } from "../repositories/AnimesRepository"
 class AnimesController {
 
     async create(request: Request, response: Response) {
-        // Regras de negócio aqui
+        const animesRepository = getCustomRepository(AnimesRepository)
+
+        const anime = {
+            titles: [{ title: "steins::gate" }],
+            description: "el psy congroo",
+            launch_year: 2010
+        }
+
+        const animes =  await animesRepository.insert(anime)
     }
 
     async search(request: Request, response: Response) {
         
-        const { animeMovieName } = request.params // Input do usuário vem aqui
-        console.log("Antes do erro: \n")
+        const { animeMovieQuery } = request.query // Input do usuário vem aqui
+        const animeMovieName = animeMovieQuery.toString()
+        console.log("animeMovieQuery: " + animeMovieQuery)
         const animesRepository = getCustomRepository(AnimesRepository)
-        console.log("Depois do erro: \n")
-
+        console.log("erro: \n")
         const animes =  await animesRepository.find()
         
         var searchedAnimes = []
@@ -27,10 +35,11 @@ class AnimesController {
         // const animes = await animesRepository.find({
         //     titles: animeMovieName
         // })
-
+        
         animes.forEach(anime => {
+            
             const titles = anime.titles
-
+            
             // titles.forEach(title => {
             //     if (title.title.includes(animeMovieName)) {
             //         // Se a substring aparecer 2 vezes em titulos diferentes, 
@@ -50,8 +59,9 @@ class AnimesController {
             })
         });
         
-
+        console.log("erro: \n")
         return response.json(animes)
+        //return response.send({message: "teste"})
         // return response.json(searchedAnimes)
     }
 }

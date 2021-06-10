@@ -16,7 +16,7 @@ routes.get('/animes', (request, response) =>
 routes.get('/filmes', (request, response) => 
     response.sendFile(path.join(__dirname, "pages/filmes.html")))
 
-routes.get('/test/:animeMovieQuery', animesController.search)
+routes.get('/search/', animesController.search)
 
 
 export default routes;

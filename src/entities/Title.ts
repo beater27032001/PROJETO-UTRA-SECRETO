@@ -16,8 +16,9 @@ class Title {
 	@Column()
 	title: string
 
-	@ManyToOne(() => Anime)
-	anime_id: string
+	// anime one->many title[]
+	@ManyToOne(type => Anime, titles => Title)
+	anime: Anime
 }
 
 export { Title };
