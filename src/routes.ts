@@ -18,5 +18,7 @@ routes.get('/filmes', (request, response) =>
 
 routes.get('/search/', animesController.search)
 
+routes.post('/create/', animesController.create)
+
 
 export default routes;

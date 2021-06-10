@@ -2,7 +2,8 @@ import {
 	Column, 
 	Entity, 
 	PrimaryGeneratedColumn, 
-	OneToMany, 
+	OneToMany,
+	JoinColumn, 
 } from "typeorm"
 import { Title } from "./Title"
 
@@ -13,7 +14,7 @@ class Anime {
 	readonly id: number
 
 	// anime one->many title[]
-	@OneToMany(type => Title, anime => Anime, { eager: true })
+	@OneToMany(type => Title, anime => Anime)
 	titles: Title[]
 
 	@Column({ length: 1000, default: "No description provided" })

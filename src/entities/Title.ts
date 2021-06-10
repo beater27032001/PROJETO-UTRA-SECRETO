@@ -1,6 +1,7 @@
 import { 
     Column, 
     Entity, 
+	JoinColumn, 
 	ManyToOne, 
     PrimaryGeneratedColumn,
 } from "typeorm";
@@ -16,8 +17,8 @@ class Title {
 	@Column()
 	title: string
 
-	// anime one->many title[]
-	@ManyToOne(type => Anime, titles => Title)
+	// anime one->many title[] @JoinColumn({ name: "animeId" })
+	@ManyToOne(type => Anime, titles => Title, { eager: true })
 	anime: Anime
 }
 
