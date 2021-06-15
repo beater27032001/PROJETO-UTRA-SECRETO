@@ -81,7 +81,7 @@
 
 .info-popup .content .info{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .info-popup .content .info .left{
@@ -91,13 +91,13 @@
   height: 100%;
 }
 
-.info-popup .content .info .left .class{
+.info-popup .content .info .left .class1{
   display: flex;
   flex-direction: row;
 
 }
 
-.info-popup .content .left .class  p{
+.info-popup .content .left .class1  p{
   text-decoration: none;
   margin-left: 4%;
   margin-top: 2%;
@@ -106,7 +106,7 @@
   color: white;
 }
 
-.info-popup .content .left .class .ft{
+.info-popup .content .left .class1 .ft{
   margin-left: 1%;
   margin-top: 2%;
   max-width:25px;
@@ -123,6 +123,13 @@
   text-align: justify;
   font-family: 'Consolas';
   color: white;
+}
+
+.info-popup .content .info .right{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 100%;
 }
 
 .info-popup .close-button {
