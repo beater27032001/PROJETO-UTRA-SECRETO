@@ -132,6 +132,16 @@
   height: 100%;
 }
 
+.info-popup .content .info .right p{
+  margin-left: 15%;
+  margin-top: 5%; 
+  margin-right: 3%;
+  width: auto;
+  height: auto;
+  font-family: 'Consolas';
+}
+
+
 .info-popup .close-button {
   position: absolute; /* Exclui o text-align: center herdado pela div .content */
   
