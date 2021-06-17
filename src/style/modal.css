@@ -141,7 +141,6 @@
   font-family: 'Consolas';
 }
 
-
 .info-popup .close-button {
   position: absolute; /* Exclui o text-align: center herdado pela div .content */
   
