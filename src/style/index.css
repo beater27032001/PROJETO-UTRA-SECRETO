@@ -17,20 +17,15 @@ header nav {
 }
 
 header nav a {
-    color: #AAA;
+    color: #aaaaaa;
     margin-right: 10px;
 }
 
 header nav a:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
-header nav .search {
-    margin-left: 30px;
-}
-
-header .search-box {
-
+header .search-form {
     position: relative;
     transform: translate(-50%, 0);
     background: none;
@@ -38,22 +33,22 @@ header .search-box {
     border-radius: 40px;
 }
 
-header .search-box:hover > .search-txt {
+header .search-form:hover > #search-txt {
     width: 240px;
     padding: 0.6px;
 }
 
-header .search-btn {
+header #search-btn {
     color: red;
     float: left;
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background:none;
+    background: none;
     margin-right: 10px;
 }
 
-header .search-txt {
+header #search-txt {
     border:none;
     background: none;
     outline: none;
