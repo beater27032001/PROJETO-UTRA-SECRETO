@@ -15,13 +15,15 @@ async function search(animeMovieQuery) {
   
 	let HTML = "";
 	animes.forEach( anime => {
+		// const mainTitle = anime.title[0];
+
 		if (i < 4) {
 			HTML += `<div class="owl-item active" style="width: 239.4px; margin-right: 10px;">\n`;
 		} else {
 			HTML += `<div class="owl-item" style="width: 239.4px; margin-right: 10px;">\n`;
 		}
 		HTML += `<div class="item">\n`;
-		HTML += `<img class="box-filme" src="../img/m1.jpg">\n`;
+		HTML += `<img class="box-filme" src="../img/${anime.title}.jpg">\n`;
 		HTML += `</div>\n`;
 		HTML += `</div>\n`;
   
@@ -30,6 +32,9 @@ async function search(animeMovieQuery) {
   
 	const owlStageOuter = document.querySelector(".owl-stage");
 	owlStageOuter.innerHTML = HTML;
+
+	const carroselFilmes = document.querySelector(".carrosel-filmes");
+	carroselFilmes.style = "display: block;";
 }
   
 const textForm = document.getElementById("search-txt");
