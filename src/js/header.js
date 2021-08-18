@@ -1,3 +1,10 @@
+function openAnime(anime) {
+	let title = anime.innerHTML;
+	const endStringIndex = title.indexOf(".jpg");
+	const startStringIndex = title.indexOf("img/") + 4;
+	title = title.substring(startStringIndex, endStringIndex);
+	console.log(title);
+}
 
 
 async function search(animeMovieQuery) {
@@ -29,6 +36,13 @@ async function search(animeMovieQuery) {
   
 	const owlStageOuter = document.querySelector(".owl-stage");
 	owlStageOuter.innerHTML = HTML;
+
+	const animesHtml = owlStageOuter.querySelectorAll(".item");
+	animesHtml.forEach(anime => {
+		anime.addEventListener("click", () => {
+			openAnime(anime);
+		});
+	});
 
 	const carroselFilmes = document.querySelector(".carrosel-filmes");
 	carroselFilmes.style = "display: block;";
