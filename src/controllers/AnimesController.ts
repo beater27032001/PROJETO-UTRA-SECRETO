@@ -1,5 +1,4 @@
 import { Request, Response } from "express"
-import { title } from "process"
 import { getCustomRepository } from "typeorm"
 import { AnimesRepository } from "../repositories/AnimesRepository"
 import { TitlesRepository } from "../repositories/TitlesRepository"
@@ -7,36 +6,41 @@ import { TitlesRepository } from "../repositories/TitlesRepository"
 class AnimesController {
 
     async create(request: Request, response: Response) {
-        const { titles, description, launch_year, age_limit } = request.body
+        // const { titles, description, launch_year, age_limit } = request.body
+        const animesToCreate = request.body;
 
         const animesRepository = getCustomRepository(AnimesRepository)
         const titlesRepository = getCustomRepository(TitlesRepository)
 
-        // var anime_ = {
-        //     titles: [{ title: "steins::gate" }],
-        //     description: "el psy congroo",
-        //     launch_year: 2010
-        // }
-
-        // Salva na tabela anime
-        const anime = animesRepository.create({
-            titles,
-            description,
-            launch_year,
-            age_limit,
-        })
-        await animesRepository.save(anime)
-
-        // Salva na tabela title
-        await titles.forEach(title => {
-            const createdTitle = titlesRepository.create({
-                title,
-                anime
+        async function createAnime(animeToCreate) {
+            const { titles, description, launch_year, age_limit, path } = animeToCreate;
+            
+            // Salva na tabela anime
+            const anime = animesRepository.create({
+                titles,
+                description,
+                launch_year,
+                age_limit,
+                path,
             })
-            titlesRepository.save(createdTitle)
+            await animesRepository.save(anime)
+            console.log(anime)
+
+            // Salva na tabela title
+            await titles.forEach(title => {
+                const createdTitle = titlesRepository.create({
+                    title,
+                    anime
+                })
+                titlesRepository.save(createdTitle)
+            });
+        }
+
+        animesToCreate.forEach(animeToCreate => {
+            createAnime(animeToCreate);
         });
-        
-        return response.json(anime).status(200)
+
+        return response.status(200)
     }
 
     async search(request: Request, response: Response) {

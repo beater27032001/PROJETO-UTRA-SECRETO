@@ -45,7 +45,7 @@ async function search(animeMovieQuery) {
 			HTML += `<div class="owl-item" style="width: 239.4px; margin-right: 10px;">\n`;
 		}
 		HTML += `<div class="item">\n`;
-		HTML += `<img class="box-filme" src="../img/${anime.title}.jpg">\n`;
+		HTML += `<img class="box-filme" src="../img/${anime.anime.path}.jpg">\n`;
 		HTML += `</div>\n`;
 		HTML += `</div>\n`;
 
