@@ -1,13 +1,14 @@
 import 'reflect-metadata'
 import express from 'express'
-//import cors from 'cors';
+//import cors from 'cors'
 
-import "./database"
+import createConnection from "./database"
 import routes from './routes'
 
 const app = express();
 
 //app.use(cors());
+createConnection()
 app.use('/', express.static(__dirname))
 app.use(express.json())
 app.use(routes)

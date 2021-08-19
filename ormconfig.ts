@@ -7,10 +7,10 @@ export default {
     "username": process.env.DB_USER,
     "password": process.env.DB_PASS,
     "migrations": [
-        "./src/database/migrations/**.ts"
+        "./src/database/migrations/**.{js,ts}"
     ],
     "entities": [
-        "./src/models/**.ts"
+        "./src/entities/**.{js,ts}"
     ],
     "cli": {
         "migrationsDir": "./src/database/migrations"

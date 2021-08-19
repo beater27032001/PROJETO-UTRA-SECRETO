@@ -16,8 +16,9 @@ routes.get('/animes', (request, response) =>
 routes.get('/filmes', (request, response) => 
     response.sendFile(path.join(__dirname, "pages/filmes.html")))
 
-routes.get('', (request, response) => AnimesController.search(request, response))
+routes.get('/search/', animesController.search)
 
-// yarn typeorm migration:run <--- parei aqui
+routes.post('/create/', animesController.create)
+
 
 export default routes;

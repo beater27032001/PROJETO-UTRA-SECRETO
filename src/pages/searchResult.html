@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- imports css -->
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/animes.css">
+    <link rel="stylesheet" href="../style/responsive/responsive-animes.css">
+    <link rel="stylesheet" href="../style/modal.css">
+
+    <title>ANIMEFLIX</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+
+            <h2 class="logo">
+                <a href="/">ANIMEFLIX</a>
+            </h2>
+
+            <nav>
+                <a href="/">Início</a>
+                <a href="/animes">Animes</a>
+                <a href="/filmes">Filmes</a>
+            </nav>
+
+            <div class="search-form">
+                <button id="search-btn" title="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input id="search-txt" type="text" placeholder="Pesquise aqui" >
+            </div>
+            
+        </div>
+    </header>
+
+    <section>
+        <div id="response-grid"></div>
+    </section>
+
+    <script src="../js/Utils.js"></script>
+    <script src="../js/index.js"></script>
+
+</body>
+</html>
