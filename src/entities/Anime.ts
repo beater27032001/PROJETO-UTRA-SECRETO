@@ -3,7 +3,6 @@ import {
 	Entity, 
 	PrimaryGeneratedColumn, 
 	OneToMany,
-	JoinColumn, 
 } from "typeorm"
 import { Title } from "./Title"
 
@@ -25,6 +24,9 @@ class Anime {
 
 	@Column({ default: 0 })
 	age_limit: number
+
+	@Column({ default: "no_image" })
+	path: string
 }
 
 export { Anime };
