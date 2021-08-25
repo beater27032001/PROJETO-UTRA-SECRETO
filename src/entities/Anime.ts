@@ -27,6 +27,9 @@ class Anime {
 	@Column({ length: 1000, default: "No description provided" })
 	description: string
 
+	@Column({ length: 300 })
+	genres: string
+
 	@Column()
 	launch_year: number
 
