@@ -45,7 +45,7 @@ async function search(animeMovieQuery) {
 			HTML += `<div class="owl-item" style="width: 239.4px; margin-right: 10px;">\n`;
 		}
 		HTML += `<div class="item">\n`;
-		HTML += `<img class="box-filme" src="../img/${anime.anime.path}.jpg">\n`;
+		HTML += `<img class="box-filme" src="../img/${anime.anime.path}.jpg" onclick="toggleSelectedPopup('${anime.title}')">\n`;
 		HTML += `</div>\n`;
 		HTML += `</div>\n`;
 
@@ -57,12 +57,12 @@ async function search(animeMovieQuery) {
 	owlStageOuter.innerHTML = HTML;
 
 	// make items clickable
-	const animesHtml = owlStageOuter.querySelectorAll(".item");
-	animesHtml.forEach(anime => {
-		anime.addEventListener("click", () => {
-			openAnime(anime);
-		});
-	});
+	// const animesHtml = owlStageOuter.querySelectorAll(".item");
+	// animesHtml.forEach(anime => {
+	// 	anime.addEventListener("click", () => {
+	// 		openAnime(anime);
+	// 	});
+	// });
 
 	// Make search result visible
 	const carroselFilmes = document.querySelector(".carrosel-filmes");
