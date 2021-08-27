@@ -24,7 +24,7 @@ function openAnime(anime) {
 
 async function search(animeMovieQuery) {
 	
-	const animes = await Utils.getAnimes(animeMovieQuery);
+	const animes = await Utils.getTitles(animeMovieQuery);
   
 	console.log("animeMovieQuery: " + animeMovieQuery);
 	console.log("Animes: ")
@@ -37,7 +37,6 @@ async function search(animeMovieQuery) {
 	let i = 0;
 	let HTML = "";
 	animes.forEach( anime => {
-		// const mainTitle = anime.title[0];
 
 		if (i < 4) {
 			HTML += `<div class="owl-item active" style="width: 239.4px; margin-right: 10px;">\n`;
@@ -45,7 +44,7 @@ async function search(animeMovieQuery) {
 			HTML += `<div class="owl-item" style="width: 239.4px; margin-right: 10px;">\n`;
 		}
 		HTML += `<div class="item">\n`;
-		HTML += `<img class="box-filme" src="../img/${anime.anime.path}.jpg" onclick="toggleSelectedPopup('${anime.title}')">\n`;
+		HTML += `<img class="box-filme" src="../img/${anime.path}.jpg" onclick="mountAnimePopup('${anime.id}')">\n`;
 		HTML += `</div>\n`;
 		HTML += `</div>\n`;
 
@@ -84,5 +83,5 @@ const magnifierButton = document.getElementById("search-btn");
 magnifierButton.addEventListener("click", e => { 
 	removeMainBanner();
 	removeCarrosel();
-	search(e.target.value);
+	search(document.getElementById("search-txt").value);
 });
