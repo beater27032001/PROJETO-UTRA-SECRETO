@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="../style/owl/owl.carousel.min.css">
     <link rel="stylesheet" href="../style/owl/owl.theme.default.min.css">
 
-    <link rel="stylesheet" href="../style/modal.css">
+    <link rel="stylesheet" href="../style/main-popup.css">
+    <link rel="stylesheet" href="../style/selected-popup.css">
 
     <title>ANIMEFLIX</title>
 </head>
@@ -50,15 +51,15 @@
                         <i class="fas fa-play"></i>
                         <a href="#" class="as">ASSISTIR AGORA</a>
                     </button>
-                    <button onclick="togglePopup()" role="button" class="botao" >
+                    <button onclick="toggleMainPopup()" role="button" class="botao" >
                         <i class="fas fa-info-circle"></i>
                         MAIS INFORMAÇÕES
                     </button>
 
-                    <div class="info-popup" id="info-popup">
+                    <div class="main-popup">
                         <div class="overlay"></div>
                         <div class="content" id="popup-content">
-                          <div class="close-button" onclick="togglePopup()">&times;</div>
+                          <div class="close-button" onclick="toggleMainPopup()">&times;</div>
                           <div class="popup-container">
                               <img class="img1" src="../img/2Caqkb1m9qL6hJu7ftvE7LbRYJt.jpg">
                               <h3 class="titulo1">NANATSU NO TAIZAI</h3>
@@ -95,34 +96,34 @@
         <h2 class="subtitulo">Animes mais populares :</h2>
         <div class="owl-carousel owl-theme">
             <div class="item">
-                <img class="box-filme" src="../img/m1.jpg" alt="">           
+                <img class="box-filme" src="../img/m1.jpg" alt="" onclick="mountAnimePopup(10)">           
             </div>
             <div class="item">
-                <img class="box-filme" src="../img/m2.jpg" alt="">           
+                <img class="box-filme" src="../img/m2.jpg" alt="" onclick="mountAnimePopup(10)">           
             </div>
             <div class="item">
-                <img class="box-filme" src="../img/m3.jpg" alt="">           
+                <img class="box-filme" src="../img/m3.jpg" alt="" onclick="mountAnimePopup(10)">           
             </div>
             <div class="item">
-                <img class="box-filme" src="../img/m4.jpg" alt="">           
+                <img class="box-filme" src="../img/m4.jpg" alt="" onclick="mountAnimePopup(10)">           
             </div>
             <div class="item">
-                <img class="box-filme" src="../img/m5.jpg" alt="">           
+                <img class="box-filme" src="../img/m5.jpg" alt="" onclick="mountAnimePopup(10)">           
             </div>
             <div class="item">
-                <img class="box-filme" src="../img/m6.jpg" alt="">           
+                <img class="box-filme" src="../img/m6.jpg" alt="" onclick="mountAnimePopup(10)">           
             </div>
             <div class="item">
-                <img class="box-filme" src="../img/m7.jpg" alt="">           
+                <img class="box-filme" src="../img/m7.jpg" alt="" onclick="mountAnimePopup(10)">           
             </div>
             <div class="item">
-                <img class="box-filme" src="../img/m8.jpg" alt="">           
+                <img class="box-filme" src="../img/m8.jpg" alt="" onclick="mountAnimePopup(10)">           
             </div>
             <div class="item">
-                <img class="box-filme" src="../img/m9.jpg" alt="">           
+                <img class="box-filme" src="../img/m9.jpg" alt="" onclick="mountAnimePopup(10)">           
             </div>
             <div class="item">
-                <img class="box-filme" src="../img/m10.jpg" alt="">           
+                <img class="box-filme" src="../img/m10.jpg" alt="" onclick="mountAnimePopup(10)">           
             </div>
         </div>
         
@@ -133,6 +134,11 @@
         <div class="owl-carousel owl-theme">
 
         </div>
+    </div>
+
+    <div class="selected-popup">
+        <div class="overlay"></div>
+        <div class="content"></div>
     </div>
 
     <script src="https://kit.fontawesome.com/e06e0a7644.js" crossorigin="anonymous"></script>

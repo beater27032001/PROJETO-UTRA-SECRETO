@@ -4,6 +4,7 @@ import {
 	PrimaryGeneratedColumn, 
 	OneToMany,
 } from "typeorm"
+import { AnimeEp } from "./AnimeEp"
 import { Title } from "./Title"
 
 @Entity("animes")
@@ -16,8 +17,18 @@ class Anime {
 	@OneToMany(type => Title, anime => Anime)
 	titles: Title[]
 
+	// anime one->many animeEP[]
+	@OneToMany(type => AnimeEp, anime => Anime)
+	episodes: AnimeEp[]
+
+	@Column()
+	seasonsQtd: number
+
 	@Column({ length: 1000, default: "No description provided" })
 	description: string
+
+	@Column({ length: 300 })
+	genres: string
 
 	@Column()
 	launch_year: number

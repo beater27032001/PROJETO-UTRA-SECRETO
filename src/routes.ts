@@ -16,7 +16,9 @@ routes.get('/animes', (request, response) =>
 routes.get('/filmes', (request, response) => 
     response.sendFile(path.join(__dirname, "pages/filmes.html")))
 
-routes.get('/search/', animesController.search)
+routes.get('/search/', animesController.searchTitle)
+
+routes.get('/episodes/', animesController.getEpisodes)
 
 routes.post('/create/', animesController.create)
 

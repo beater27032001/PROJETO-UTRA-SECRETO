@@ -43,43 +43,48 @@ class AnimesController {
         return response.status(200)
     }
 
-    async search(request: Request, response: Response) {
+    async searchTitle(request: Request, response: Response) {
         
         const { animeMovieQuery } = request.query // Input do usuário vem aqui
-        const animeMovieName = animeMovieQuery.toString()
+        const animeMovieName = animeMovieQuery.toString().toLowerCase();
         console.log("animeMovieQuery: " + animeMovieQuery)
 
-        const animesRepository = getCustomRepository(AnimesRepository)
+        // const animesRepository = getCustomRepository(AnimesRepository)
         const titlesRepository = getCustomRepository(TitlesRepository)
-        const animes =  await animesRepository.find()
-        const titles = await titlesRepository.find()
+        // const animes =  await animesRepository.find() // Return all animes
+        const titles = await titlesRepository.find() // Return all titles
         
         var searchedAnimes = []
 
         titles.forEach(title => {
         
-            if ( title.title.includes(animeMovieName) ) {
+            if ( title.title.toLowerCase().includes(animeMovieName.toLowerCase()) ) {
                 
                 var animeAlreadyAdded = false 
-                console.log("Title atual: " + title.title)
-                console.log("Anime id atual: " + title.anime.id)
+                console.log("Title atual: " + title.title + " | ID: " + title.anime.id);
                 searchedAnimes.forEach(searchedAnime => {
-                    if ( searchedAnime.anime.id == title.anime.id ) {
-                        console.log("Title atual: " + title.title)
+                    // if ( searchedAnime.anime.id == title.anime.id ) {
+                    //     animeAlreadyAdded = true
+                    // }
+                    if ( searchedAnime.id == title.anime.id ) {
                         animeAlreadyAdded = true
                     }
                 });
 
+                // const testeA = title.anime; // {}
+                // const testeB = title.title; // String
+                // const testeC = title.anime.episodes; // undefined
+
                 if ( !animeAlreadyAdded ) {
-                    searchedAnimes.push({anime: title.anime, title: title.title})
+                    // searchedAnimes.push({anime: title.anime, title: title.title})
+                    searchedAnimes.push({
+                        path: title.anime.path, 
+                        id: title.anime.id
+                    });
                     animeAlreadyAdded = false
                 }
             }
         });
-
-        // SELECT * 
-        // FROM animeflix.animes AS A, animeflix.titles AS T 
-        // WHERE A.id = T.animeIdId;
 
         // titles eh um array
         // const animes = await animesRepository.find({
@@ -113,6 +118,35 @@ class AnimesController {
         // return response.json(animes)
         //return response.send({message: "teste"})
         return response.json(searchedAnimes)
+    }
+
+
+    async getEpisodes(request: Request, response: Response) {
+        const { animeId } = request.query;
+
+        const animesRepository = getCustomRepository(AnimesRepository);
+
+        // SELECT * 
+        // FROM animeflix.animes AS A, animeflix.titles AS T, animeflix.anime_eps as E
+        // WHERE A.id = T.animeId and A.id = E.animeIdand T.title = "steins gate";
+
+        const animeQuery = `SELECT title, \`description\`, launch_year, age_limit, \`path\`, seasonsQtd, genres 
+        FROM animeflix.animes AS A, animeflix.titles AS T
+        WHERE A.id = T.animeId and A.id = ?;`;
+
+        const episodesQuery = `SELECT name, \`description\`, season, \`path\`
+        FROM animeflix.anime_eps as E
+        WHERE E.animeId = ?;`;
+
+        const anime = await animesRepository.query(animeQuery, [animeId]);
+        const episodes = await animesRepository.query(episodesQuery, [animeId]);
+
+        // anime é um array<RowDataPacket> com apenas 1 row retornada
+        anime[0].episodes = episodes;
+
+        // console.log(anime);
+
+        return response.json(anime[0]);
     }
 }
 

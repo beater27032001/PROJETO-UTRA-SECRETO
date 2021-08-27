@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../style/owl/owl.carousel.min.css">
     <link rel="stylesheet" href="../style/owl/owl.theme.default.min.css">
 
-    <link rel="stylesheet" href="../style/modal.css">
+    <link rel="stylesheet" href="../style/selected-popup.css">
 
     <title>ANIMEFLIX</title>
 </head>
@@ -683,12 +683,27 @@
         </div>
     </div>
 
+    <div class="selected-popup">
+        <div class="overlay"></div>
+        <div class="content"></div>
+    </div>
+
     <script src="https://kit.fontawesome.com/e06e0a7644.js" crossorigin="anonymous"></script>
     <script src="../js/owl/jquery.min.js"></script>
     <script src="../js/owl/owl.carousel.min.js"></script>
     <script src="../js/owl/setup.js"></script>
     <script src="../js/Utils.js"></script>
     <script src="../js/header.js"></script>
+
+    <script>
+        function toggleSelectedPopup(anime) {
+            document.querySelector(".overlay").classList.toggle("active");
+            document.querySelector(".selected-popup").classList.toggle("active");
+
+            console.log(anime);
+            // copy logic from index.js
+        }
+    </script>
 
 </body>
 </html>
