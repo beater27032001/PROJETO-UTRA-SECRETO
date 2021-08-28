@@ -2,6 +2,12 @@
     --vermelho:#E50914;
     --preta:#141414;
 }
+
+.selected-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
   
 .selected-popup .overlay {
     display: none; /*overlay começa invisível*/
@@ -13,8 +19,6 @@
     left: 0px;
     width: 100%;
     height: 200%;
-  
-    border-radius: 10px 10px 0px 0px;
   
     background: rgba(0, 0, 0, 0.7); /*Cor cinza transparente*/
 }
@@ -46,14 +50,21 @@
     display: block; /*content começa vísivel, mas com scale 0*/
     z-index: 3; /*content na frente da página e do overlay*/
   
-    /*Coloca o content no meio*/
+    /* Coloca o content no meio */
+    /* (Observar que o parent é flex e possui align-items: center) */
+    /* (Então, caso o HTML mude de posição, talvez o aling-items quebre) */
+    /* Formas de centralizar/alinhar elementos -> https://www.w3schools.com/css/css_align.asp */
     position: absolute; /* Tira content do inicio do HTML */
-    top: 50%;
-    left: 50%;
-    width: 70%;
+    transform-origin: center top;
+    width: 850px;
+    min-width: 850px;
+    top: 664px;
+    left: auto;
+    
+    
     height: auto;
-    overflow: hidden;
-    transform: translate(-50%, -50%) scale(0); /*scale 0 faz o content começar invisível*/
+    overflow-x: hidden;
+    transform: translateX(0px) translateY(calc(-664px + 2em)) scale(0); /*scale 0 faz o content começar invisível*/
     
     border-radius: 10px 10px 0px 0px;
   
@@ -64,7 +75,7 @@
 }
 .selected-popup.active .content {
     transition: all 300ms ease-in-out;
-    transform: translate(-50%,-50%) scale(1);
+    transform: translateX(0px) translateY(calc(-664px + 2em)) scale(1);
 }
 
 
@@ -165,5 +176,15 @@
     width: auto;
     height: auto;
     font-family: 'Consolas';
+}
+
+.selected-popup .third-layer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* height: 560px;
+
+    overflow-y: scroll; */
 }
 

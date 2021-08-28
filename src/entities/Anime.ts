@@ -36,8 +36,11 @@ class Anime {
 	@Column({ default: 0 })
 	age_limit: number
 
-	@Column({ default: "no_image" })
-	path: string
+	@Column({ default: "no_cover" })
+	cover_path: string
+
+	@Column({ default: "no_banner" })
+	banner_path: string
 }
 
 export { Anime };

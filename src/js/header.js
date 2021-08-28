@@ -35,10 +35,11 @@ async function search(animeMovieQuery) {
 	}
 
 	let i = 0;
+	const activeColumns = 4;
 	let HTML = "";
 	animes.forEach( anime => {
 
-		if (i < 4) {
+		if (i < activeColumns) {
 			HTML += `<div class="owl-item active" style="width: 239.4px; margin-right: 10px;">\n`;
 		} else {
 			HTML += `<div class="owl-item" style="width: 239.4px; margin-right: 10px;">\n`;
@@ -53,6 +54,7 @@ async function search(animeMovieQuery) {
 
 	// inject html
 	const owlStageOuter = document.querySelector(".owl-stage");
+	// owlStageOuter.style = `width: ${i}; !important`;
 	owlStageOuter.innerHTML = HTML;
 
 	// make items clickable
