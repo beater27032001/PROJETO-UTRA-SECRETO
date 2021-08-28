@@ -13,15 +13,17 @@ class AnimesController {
         const titlesRepository = getCustomRepository(TitlesRepository)
 
         async function createAnime(animeToCreate) {
-            const { titles, description, launch_year, age_limit, path } = animeToCreate;
+            const { titles, seasonsQtd, description, genres, launch_year, age_limit, cover_path, banner_path } = animeToCreate;
             
             // Salva na tabela anime
             const anime = animesRepository.create({
-                titles,
+                seasonsQtd, 
                 description,
+                genres,
                 launch_year,
                 age_limit,
-                path,
+                cover_path,
+                banner_path,
             })
             await animesRepository.save(anime)
             console.log(anime)
@@ -78,7 +80,7 @@ class AnimesController {
                 if ( !animeAlreadyAdded ) {
                     // searchedAnimes.push({anime: title.anime, title: title.title})
                     searchedAnimes.push({
-                        path: title.anime.path, 
+                        path: title.anime.cover_path, 
                         id: title.anime.id
                     });
                     animeAlreadyAdded = false
@@ -130,7 +132,7 @@ class AnimesController {
         // FROM animeflix.animes AS A, animeflix.titles AS T, animeflix.anime_eps as E
         // WHERE A.id = T.animeId and A.id = E.animeIdand T.title = "steins gate";
 
-        const animeQuery = `SELECT title, \`description\`, launch_year, age_limit, \`path\`, seasonsQtd, genres 
+        const animeQuery = `SELECT title, \`description\`, launch_year, age_limit, \`banner_path\`, seasonsQtd, genres 
         FROM animeflix.animes AS A, animeflix.titles AS T
         WHERE A.id = T.animeId and A.id = ?;`;
 

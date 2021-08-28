@@ -16,7 +16,7 @@ async function mountAnimePopup(animeId) {
 	const HTML = `
 	<div class="close-button" onclick="toggleSelectedPopup()">×</div>
 	<section class="first-layer">
-		<img src="../img/${anime.path}.jpg" alt="Anime cover">
+		<img src="../img/${anime.banner_path}.jpg" alt="Anime banner">
 		<h3 class="anime-title">${anime.title}</h3>
 		<button>
 			<i class="fas fa-play"></i>
